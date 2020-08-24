@@ -1,0 +1,20 @@
+{% load mathfilters %} <a href="/">Home</a> |
+<a href="/votes/">Sort by vote</a> | <a href="/boasts/">Boasts</a> |
+<a href="/roasts/">Roasts</a> |
+<a href="/newpost/">Creat Post</a>
+{% for post in posts %} {% if post.is_roast == 1%}
+<h1>Roast</h1>
+{% else %}
+<h1>Boast</h1>
+{%endif%}
+<h3>{{ post.body }}</h3>
+<br />
+{{ post.upvotes|sub:post.downvotes }}
+<br />
+<br />
+{{ post.post_time}}
+<br />
+<a href="/upvote/{{ post.id }}">Upvote </a
+><a href="/downvote/{{ post.id }}">Downvote</a>
+<hr />
+{% endfor %}
